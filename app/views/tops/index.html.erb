@@ -1,0 +1,27 @@
+<div id="home" class="big-bag">
+ <header class='top-page-header'>
+   <div class='nav'>
+      <li><%= link_to "SKILLMOVIE", "/", class:"skill-icon" %><li>
+      <li><%= link_to 'ABOUT', "#", class: "about" %></li>
+      <li><%= link_to 'SIGN IN', "/users/sign_in", class: "login" %></li>
+      <li><%= link_to 'SIGN UP', "/users/sign_up", class: "sign-up" %></li>
+   </div>
+ </header>
+
+ <div class='main'>
+
+  <%# 画面の「Improve Your Skills」帯部分 %>
+  <div class='title-contents'>
+    <h2 class='service-title'>
+      Improve Your Skills
+    </h2>
+    <p class='service-explain'>
+      自分のスキル上達させませんか？気軽に投稿してスキルを増やそう！
+    </p>
+    <a class="button" href="/users/sign_in">今すぐ始める</a>
+    <a class="second_button" href="#">かんたんログイン</a>
+    <p class="explain">※かんたんログインは実装を確かめるものです</p>
+  </div>
+  <%# //画面の「Improve Your Skills」帯部分  %>
+ </div>
+</div><!--/#home -->
