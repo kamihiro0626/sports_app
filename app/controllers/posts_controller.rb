@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
-    
+    before_action :set_post, only: [:show, :edit, :update]
+
+
   def index
     @posts = Post.all.order("created_at DESC")
   end
@@ -13,6 +15,20 @@ class PostsController < ApplicationController
   end
 
   def show
+
+  end
+
+  def edit
+    
+  end
+
+  def update
+
+  end
+
+  private
+
+  def set_post
     @post = Post.new
   end
 end
