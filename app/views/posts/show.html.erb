@@ -1,0 +1,72 @@
+<%= render "shared/header" %>
+
+<%# 投稿の概要 %>
+<div class="post-show">
+  <div class="post-box">
+    <h2 class="name">
+      <%= @post.title %>
+    </h2>
+    <div class='post-img-content'>
+      <%# <%= image_tag @post.movie ,class:"post-box-img" %>
+    </div>
+    <div class="post-explain-box">
+      <span><%= @post.content %></span>
+    </div>
+
+    <%# ログインしていて、なおかつ、ログインしているユーザと投稿しているユーザが同一人物でないとき表示しましょう。 %>
+    <% if user_signed_in? && current_user.id == @item.user_id %>
+    <%= link_to '編集', edit_post_path(@item.id), method: :get, class: "post-red-btn" %> 
+    <p class='or-text'>or</p>
+    <%= link_to '削除', post_path(@item.id), method: :delete, class:'post-destroy' %>
+    <% end %>
+    <%# //ログインしていて、なおかつ、ログインしているユーザと投稿しているユーザが同一人物でないとき表示しましょう。 %>
+
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-post">投稿者</th>
+          <%# <td class="detail-value"><%= @post.user.name %>
+        </tr>
+        <tr>
+          <th class="detail-post">カテゴリー</th>
+          <%# <td class="detail-value"><%= @post.category.name %>
+        </tr>
+      </tbody>
+    </table>
+    <div class="option">
+      <div class="favorite-btn">
+        <%# <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
+        <span>お気に入り 0</span>
+      </div>
+      <div class="report-btn">
+        <%# <%= image_tag "flag.png" ,class:"report-flag-icon" ,width:"20",height:"20"%>
+        <span>不適切な投稿の通報</span>
+      </div>
+    </div>
+  </div>
+  <%# /投稿の概要 %>
+
+  <div class="comment-box">
+    <form>
+      <textarea class="comment-text"></textarea>
+      <p class="comment-warn">
+        相手のことを考え丁寧なコメントを心がけましょう。
+        <br>
+        不快な言葉遣いなどは利用制限や退会処分となることがあります。
+      </p>
+      <button type="submit" class="comment-btn">
+        <%# <%= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
+        <span>コメントする<span>
+      </button>
+    </form>
+  </div>
+  <div class="links">
+    <a href="#" class="change-post-btn">
+      ＜ 前の投稿
+    </a>
+    <a href="#" class="change-post-btn">
+      後ろの投稿 ＞
+    </a>
+  </div>
+  <a href="#" class='another-item'><%= "投稿のカテゴリー名" %>をもっと見る</a>
+</div>
