@@ -3,34 +3,34 @@
   <%# 投稿一覧 %>
   <div class='post-contents'>
     <h2 class='title'>ピックアップカテゴリー</h2>
-    <%= link_to '新規投稿商品', "#", class: "subtitle" %>
+    <%= link_to '新規投稿', "#", class: "subtitle" %>
     <ul class='post-lists'>
-     <% @posts.each do |post| %>
+     <% @posts.each do |post| %> 
       <li class='list'>
-        <%= link_to item_path(item.id), method: :get do %>
+        <%# <%= link_to post_path(post.id), method: :get do %>
         <div class='post-img-content'>
-          <%= image_tag post.movie, class: "post-img" %>
+          <%# <%= image_tag post.movie, class: "post-img" %>
         </div>
         <div class='post-info'>
-          <h3 class='post-name'>
-            <%= post.name %>
+          <h3 class='post-title'>
+            <%= post.title %>
           </h3>
             <div class='star-btn'>
               <%# <%= image_tag "star.png", class:"star-icon" %> 
               <span class='star-count'>0</span>
             </div>
         </div>
-        <% end %>
+        <%# <% end %>
       </li>
-     <% end %>
+    <% end %>
     </ul>
   </div>
   <%# //投稿一覧 %>
 </div>
 <div class='post-btn'>
   <span class='post-btn-text'>投稿する</span>
-  <%# <a href="/items/new"> %>
+  <a href="/posts/new">
     <%# <%= image_tag 'camera.png' , size: '185x50' ,class: "purchase-btn-icon" %> 
-  <%# </a> %>
+  </a>
 </div>
-<%# <%= render "shared/footer" %> %>
+<%# <%= render "shared/footer" %> 
