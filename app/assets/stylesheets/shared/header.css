@@ -20,6 +20,7 @@
   font-size: 40px;
   width: 20vw;
   margin-right: 20vw;
+  color: aquamarine;
 }
 
 .search-form {
@@ -70,6 +71,10 @@
   color: #333333;
 }
 
+.category-list:hover {
+  background-color: lightgray;
+}
+
 .brand-list {
   text-decoration: none;
   color: #333333;
@@ -95,9 +100,17 @@
   margin: 0 20px;
 }
 
+.mypage:hover {
+  background-color: lightgray;
+}
+
 .logout {
   text-decoration: none;
   color: #333333;
+}
+
+.logout:hover {
+  background-color: lightgray;
 }
 
 .login {
