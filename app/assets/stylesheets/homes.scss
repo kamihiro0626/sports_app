@@ -12,7 +12,8 @@ a {
   background-position: center top;
 }
 #home {
-  background-image: linear-gradient(#c9ffbf, #ffafbd);
+  background-image: image_url("main-big.jpeg"), radial-gradient(#c9ffbf, #ffafbd);
+  background-blend-mode: luminosity;
   min-height: 100vh;
 }
 
@@ -40,21 +41,22 @@ a {
 
 .about {
   text-decoration: none;
+  font-weight: 20px;
   line-height: 32px;  
   margin-right: 3vw;
-  color: #333333;
+  color: red;
 }
 
-.login {
+.login-1 {
   text-decoration: none;
   line-height: 32px;
   margin-right: 3vw;
-  color: #333333;
+  color: red;
 }
 
-.sign-up {
+.sign-up-1 {
   text-decoration: none;
-  color: #333333;
+  color:red;
 }
 
 /* 画面上部の「IMPROVE YOUR SKILLS」帯部分 */
@@ -75,7 +77,8 @@ a {
   font-family: 'philosopher', serif;
   text-transform: uppercase;
   font-weight: normal;
-  text-shadow: 0 10px 20px rgba(0, 0, 0, 0.9);
+  text-shadow: 0 10px 20px rgba(223, 212, 56, 0.65);
+  color: #0bd;
 }
 
 .service-explain {
@@ -83,6 +86,7 @@ a {
   line-height: 40px;
   margin: 0 0 42px;
   text-shadow: 0 10px 20px rgba(0, 0, 0, 0.9);
+  color: #0bd;
 }
 
 .explain {
