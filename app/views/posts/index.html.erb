@@ -7,9 +7,9 @@
     <ul class='post-lists'>
      <% @posts.each do |post| %> 
       <li class='list'>
-        <%# <%= link_to post_path(post.id), method: :get do %>
+        <%= link_to post.movie_url.to_s do %>
         <div class='post-img-content'>
-          <%# <%= image_tag post.movie, class: "post-img" %>
+          <%= video_tag post.movie.to_s, class: "post-img" %>
         </div>
         <div class='post-info'>
           <h3 class='post-title'>
@@ -20,7 +20,7 @@
               <span class='star-count'>0</span>
             </div>
         </div>
-        <%# <% end %>
+        <% end %>
       </li>
     <% end %>
     </ul>

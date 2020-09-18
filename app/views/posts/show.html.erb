@@ -15,9 +15,9 @@
 
     <%# ログインしていて、なおかつ、ログインしているユーザと投稿しているユーザが同一人物でないとき表示しましょう。 %>
     <% if user_signed_in? && current_user.id == @post.user_id %>
-    <%= link_to '編集', edit_post_path(@item.id), method: :get, class: "post-red-btn" %> 
+    <%= link_to '編集', edit_post_path(@post.id), method: :get, class: "post-red-btn" %> 
     <p class='or-text'>or</p>
-    <%= link_to '削除', post_path(@item.id), method: :delete, class:'post-destroy' %>
+    <%= link_to '削除', post_path(@post.id), method: :delete, class:'post-destroy' %>
     <% end %>
     <%# //ログインしていて、なおかつ、ログインしているユーザと投稿しているユーザが同一人物でないとき表示しましょう。 %>
 
