@@ -7,7 +7,7 @@
       <%= @post.title %>
     </h2>
     <div class='post-img-content'>
-      <%# <%= image_tag @post.movie ,class:"post-box-img" %>
+     <%= video_tag @post.movie, height: "50%", width: "50%", controls: true, autobuffer: true, class:"post-box-img" %>
     </div>
     <div class="post-explain-box">
       <span><%= @post.content %></span>
@@ -15,9 +15,9 @@
 
     <%# ログインしていて、なおかつ、ログインしているユーザと投稿しているユーザが同一人物でないとき表示しましょう。 %>
     <% if user_signed_in? && current_user.id == @post.user_id %>
-    <%= link_to '編集', edit_post_path(@item.id), method: :get, class: "post-red-btn" %> 
+    <%= link_to '編集', edit_post_path(@post.id), method: :get, class: "post-red-btn" %> 
     <p class='or-text'>or</p>
-    <%= link_to '削除', post_path(@item.id), method: :delete, class:'post-destroy' %>
+    <%= link_to '削除', post_path(@post.id), method: :delete, class:'post-destroy' %>
     <% end %>
     <%# //ログインしていて、なおかつ、ログインしているユーザと投稿しているユーザが同一人物でないとき表示しましょう。 %>
 
@@ -25,11 +25,11 @@
       <tbody>
         <tr>
           <th class="detail-post">投稿者</th>
-          <%# <td class="detail-value"><%= @post.user.name %>
+          <td class="detail-value"><%= @post.user.nickname %>
         </tr>
         <tr>
           <th class="detail-post">カテゴリー</th>
-          <%# <td class="detail-value"><%= @post.category.name %>
+          <td class="detail-value"><%= @post.category.name %>
         </tr>
       </tbody>
     </table>

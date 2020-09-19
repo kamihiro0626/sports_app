@@ -1,4 +1,4 @@
-<div class="posts-contents">
+-<div class="posts-contents">
  <%= render "shared/header" %>  
 
   <div class="posts-main">
@@ -15,9 +15,9 @@
       </div>
       <div class="click-upload">
         <p>
-          クリックしてファイルをアップロード
+          click
         </p>
-        <%= f.file_field :movie, id:"post-movie" %>
+        <%= f.file_field :movie, :accept => 'video/*', id:"post-movie" %>
       </div>
     </div>
     <div id="movie-list" ></div>
@@ -45,7 +45,9 @@
           カテゴリー
           <span class="indispensable">必須</span>
         </div>
-        <%# <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"post-category"}) %>
+        <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"post-category"}) %>
+        </div>
+      </div>
     <%# /カテゴリー %>
 
     <%# 注意書き %>

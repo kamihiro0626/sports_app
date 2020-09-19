@@ -2,8 +2,8 @@
  <%= render "shared/header" %>  
 
   <div class="posts-main">
-    <h2 class="posts-title">投稿内容を入力</h2>
-    <%= form_with model: @post, url: posts_path, local: true do |f| %>
+    <h2 class="posts-title">変更内容を入力</h2>
+    <%= form_with model: @post, url: post_path(@post.id), local: true do |f| %>
 
     <%# <%= render 'shared/error_messages', model: f.object %> 
 
@@ -17,7 +17,7 @@
         <p>
           クリックしてファイルをアップロード
         </p>
-        <%= f.file_field :movie, id:"post-movie" %>
+        <%= f.file_field :movie, :accept => 'video/*', id:"post-movie" %>
       </div>
     </div>
     <div id="movie-list" ></div>
@@ -45,7 +45,7 @@
           カテゴリー
           <span class="indispensable">必須</span>
         </div>
-        <%# <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"post-category"}) %>
+        <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"post-category"}) %>
     <%# /カテゴリー %>
 
     <%# 注意書き %>
@@ -60,7 +60,7 @@
     <%# 下部ボタン %>
     <div class="post-btn-contents">
       <%= f.submit "変更する" ,class:"post-btn-2" %>
-      <%=link_to 'もどる', root_path, class:"back-btn" %>
+      <%=link_to 'もどる', post_path, class:"back-btn" %>
     </div>
     <%# /下部ボタン %>
   <% end %>
