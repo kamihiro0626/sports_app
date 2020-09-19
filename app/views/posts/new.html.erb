@@ -17,7 +17,7 @@
         <p>
           click
         </p>
-        <%= f.file_field :movie, id:"post-movie" %>
+        <%= f.file_field :movie, :accept => 'video/*', id:"post-movie" %>
       </div>
     </div>
     <div id="movie-list" ></div>

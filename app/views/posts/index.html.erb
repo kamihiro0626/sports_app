@@ -7,9 +7,9 @@
     <ul class='post-lists'>
      <% @posts.each do |post| %> 
       <li class='list'>
-        <%= link_to post.movie_url.to_s do %>
+        <%= link_to post_path(post.id) do %>
         <div class='post-img-content'>
-          <%= video_tag post.movie.to_s, class: "post-img" %>
+          <%= video_tag post.movie, height: "50%", width: "50%", controls: true, autobuffer: true, loop: true, class: "post-img" %>
         </div>
         <div class='post-info'>
           <h3 class='post-title'>

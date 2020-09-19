@@ -7,7 +7,7 @@
       <%= @post.title %>
     </h2>
     <div class='post-img-content'>
-      <%# <%= image_tag @post.movie ,class:"post-box-img" %>
+     <%= video_tag @post.movie, height: "50%", width: "50%", controls: true, autobuffer: true, class:"post-box-img" %>
     </div>
     <div class="post-explain-box">
       <span><%= @post.content %></span>
@@ -25,11 +25,11 @@
       <tbody>
         <tr>
           <th class="detail-post">投稿者</th>
-          <%# <td class="detail-value"><%= @post.user.name %>
+          <td class="detail-value"><%= @post.user.nickname %>
         </tr>
         <tr>
           <th class="detail-post">カテゴリー</th>
-          <%# <td class="detail-value"><%= @post.category.name %>
+          <td class="detail-value"><%= @post.category.name %>
         </tr>
       </tbody>
     </table>
