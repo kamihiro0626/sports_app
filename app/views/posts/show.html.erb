@@ -46,20 +46,41 @@
   </div>
   <%# /投稿の概要 %>
 
+ <%# <%コメント機能%> 
   <div class="comment-box">
-    <form>
-      <textarea class="comment-text"></textarea>
+ <div class="container">
+    <div class="comments">
+      <h4>＜コメント一覧＞</h4>
+      <% if @comments %>
+        <% @comments.each do |comment| %>
+          <p>
+            <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
+            <%= comment.text %>
+          </p>
+          <p>
+            <%=link_to "削除", post_comment_path(comment.post.id, comment.id), method: :delete %>
+          </p>
+        <% end %>
+      <% end %>
+    </div>
+    <% if current_user %>
+      <%= form_with(model: [@post, @comment], local: true) do |form| %>
+        <%= form.text_area :text, placeholder: "コメントする", class:"comment-text" %>
       <p class="comment-warn">
         相手のことを考え丁寧なコメントを心がけましょう。
         <br>
         不快な言葉遣いなどは利用制限や退会処分となることがあります。
       </p>
-      <button type="submit" class="comment-btn">
-        <%# <%= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
-        <span>コメントする<span>
-      </button>
-    </form>
+        <%= form.submit "SEND",class:"comment-btn" %>
+      <% end %>
+    <% else %>
+      <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p>
+      </strong>
+    <% end %>
   </div>
+  </div>
+  <%# <コメント機能> %>
+
   <div class="links">
     <a href="#" class="change-post-btn">
       ＜ 前の投稿
