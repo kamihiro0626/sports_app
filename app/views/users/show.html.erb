@@ -2,12 +2,26 @@
 
 <div class="contents_row">
   <p><%= @nickname %>さんの投稿一覧</p>
-  <% @posts.each do |post| %>
-    <div class="content_post" style="background-image: url(<%= post.movie %>);">
-      <p><%= post.title %></p>
-      <span class="name"><%= @nickname %></span>
-    </div>
-  <% end %>
+      <ul class='post-lists'>
+        <% @posts.each do |post| %> 
+         <li class='list'>
+           <%= link_to post_path(post.id) do %>
+           <%# <div class='post-img-content'> %>
+             <%= video_tag post.movie, height: "50%", width: "50%", controls: true, autobuffer: true, loop: true, class: "post-img" %>
+           <%# </div> %>
+           <div class='post-info'>
+             <h3 class='post-title'>title:
+              <%= post.title %>
+             </h3>
+               <div class='star-btn'>
+                 <%# <%= image_tag "star.png", class:"star-icon" %> 
+                 <span class='star-count'>liks: 0</span>
+               </div>
+           </div>
+           <% end %>
+         </li>
+        <% end %>
+      </ul>
   <p>お気に入り一覧</p>
   <div class='post-btn'>
   <span class='post-btn-text'>投稿する</span>
@@ -17,3 +31,4 @@
 </div>
 <%= link_to 'トップページへ戻る', "/posts", class: "back_top" %>
 </div>
+<%= render "shared/footer" %>

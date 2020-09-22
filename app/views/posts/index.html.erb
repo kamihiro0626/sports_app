@@ -2,36 +2,39 @@
   
   <%# 投稿一覧 %>
   <div class='post-contents'>
-    <h2 class='title'>ピックアップカテゴリー</h2>
-    <%= link_to '新規投稿', "#", class: "subtitle" %>
-    <ul class='post-lists'>
-     <% @posts.each do |post| %> 
-      <li class='list'>
-        <%= link_to post_path(post.id) do %>
-        <div class='post-img-content'>
-          <%= video_tag post.movie, height: "50%", width: "50%", controls: true, autobuffer: true, loop: true, class: "post-img" %>
-        </div>
-        <div class='post-info'>
-          <h3 class='post-title'>
-            <%= post.title %>
-          </h3>
-            <div class='star-btn'>
-              <%# <%= image_tag "star.png", class:"star-icon" %> 
-              <span class='star-count'>0</span>
-            </div>
-        </div>
+    <main>
+      <h2 class='title'>Posts List</h2>
+       <ul class='post-lists'>
+        <% @posts.each do |post| %> 
+         <li class='list'>
+           <%= link_to post_path(post.id) do %>
+           <%# <div class='post-img-content'> %>
+             <%= video_tag post.movie, height: "50%", width: "50%", controls: true, autobuffer: true, loop: true, class: "post-img" %>
+           <%# </div> %>
+           <div class='post-info'>
+             <h3 class='post-title'>title:
+              <%= post.title %>
+             </h3>
+               <div class='star-btn'>
+                 <%# <%= image_tag "star.png", class:"star-icon" %> 
+                 <span class='star-count'>liks: 0</span>
+               </div>
+           </div>
+           <% end %>
+         </li>
         <% end %>
-      </li>
-    <% end %>
-    </ul>
+       </ul>
+    </main>
+    <aside>
+    <%= render "shared/side-bar" %>
+    </aside>
   </div>
   <%# //投稿一覧 %>
-</div>
 <div class='post-btn'>
   <a href="/posts/new">
-  <span class='post-btn-text'>投稿する</span>
+  <span class='post-btn-text'>POST</span>
   </a>
     <%# <%= image_tag 'camera.png' , size: '185x50' ,class: "purchase-btn-icon" %> 
 
 </div>
-<%# <%= render "shared/footer" %> 
+<%= render "shared/footer" %>
