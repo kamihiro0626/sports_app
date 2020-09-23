@@ -1,0 +1,4 @@
+<%# app/views/likes/create.js.erb %>
+
+document.getElementById('post_<%= @post.id %>').innerHTML = '<%= escape_javascript(render @post) %>'
+

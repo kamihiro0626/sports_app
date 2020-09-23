@@ -12,13 +12,19 @@
              <%= video_tag post.movie, height: "50%", width: "50%", controls: true, autobuffer: true, loop: true, class: "post-img" %>
            <%# </div> %>
            <div class='post-info'>
-             <h3 class='post-title'>title:
-              <%= post.title %>
+             <h3 class="post-title">name:
+              <%= post.user.nickname%>
              </h3>
-               <div class='star-btn'>
-                 <%# <%= image_tag "star.png", class:"star-icon" %> 
-                 <span class='star-count'>liks: 0</span>
-               </div>
+              <h3 class='post-title'>title:
+              <%= post.title %>
+              </h3>
+              <table>
+                <tbody>
+                 <tr id="post_<%= post.id %>">
+                  <%= render 'post', post: post %>
+                 </tr>
+                </tbody>
+              </table>
            </div>
            <% end %>
          </li>
