@@ -6,6 +6,8 @@ class Post < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
   has_many :likes
+  has_many :favorites, dependent: :destroy
+  has_many :users, through: :favorites
 
   with_options presence: true do
     validates :title
@@ -15,4 +17,8 @@ class Post < ApplicationRecord
   end
 
   validates :category_id, numericality: { other_than: 1 }
+
+  def bookmark_by?(user)
+    favorites.where(user_id: user.id).exists?
+  end
 end
