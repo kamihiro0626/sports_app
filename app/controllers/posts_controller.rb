@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 
 
   def index
-    @posts = Post.all.includes(:user).recent
+    @posts = Post.all.includes(:user).order("created_at DESC")
   end
 
   def new
@@ -48,6 +48,13 @@ class PostsController < ApplicationController
     @posts = current_user.favorites_posts.includes(:user).recent
  end
  
+#  def previous
+#   Post.where("id < ?",id).order("id DESC").publish.first
+# end
+
+# def next
+#   Post.where("id > ?", id).order("id ASC").publish.first
+# end
 
   private
 
