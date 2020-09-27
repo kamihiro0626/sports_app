@@ -5,17 +5,17 @@
     <h2 class="posts-title">投稿内容を入力</h2>
     <%= form_with model: @post, url: posts_path, local: true do |f| %>
 
-    <%# <%= render 'shared/error_messages', model: f.object %> 
+    <%= render 'shared/error_messages', model: f.object %>
 
     <%# 投稿動画 %>
     <div class="img-upload">
       <div class="weight-bold-text">
-        投稿動画
-        <span class="indispensable">必須</span>
+        MOVIE
+        <span class="indispensable">Required Field</span>
       </div>
       <div class="click-upload">
         <p>
-          click
+          Please click
         </p>
         <%= f.file_field :movie, :accept => 'video/*', id:"post-movie" %>
       </div>
@@ -25,13 +25,13 @@
     <%# タイトルと投稿説明 %>
     <div class="new-posts">
       <div class="weight-bold-text">
-        タイトル
-        <span class="indispensable">必須</span>
+        TITLE
+        <span class="indispensable">Required Field</span>
       </div>
       <%= f.text_area :title, class:"posts-text", id:"post-name", placeholder:"タイトル（必須 40文字まで)", maxlength:"40" %>
       <div class="posts-explain">
         <div class="weight-bold-text">
-          投稿の説明
+          CAPTION
         </div>
         <%= f.text_area :content, class:"posts-text", id:"post-info", placeholder:"投稿の説明（1,000文字まで）例）ドリブル！！ボールを見ないでできるようになった！" ,rows:"7" ,maxlength:"1000" %>
       </div>
@@ -42,8 +42,8 @@
     <div class="posts-detail">
       <div class="form">
         <div class="weight-bold-text">
-          カテゴリー
-          <span class="indispensable">必須</span>
+          CATEGORY
+          <span class="indispensable">Required Field</span>
         </div>
         <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"post-category"}) %>
         </div>
@@ -61,8 +61,8 @@
     <%# /注意書き %>
     <%# 下部ボタン %>
     <div class="post-btn-contents">
-      <%= f.submit "投稿する" ,class:"post-btn-2" %>
-      <%=link_to 'もどる', root_path, class:"back-btn" %>
+      <%= f.submit "POST" ,class:"post-btn-2" %>
+      <%=link_to 'BACK', posts_path, class:"back-btn" %>
     </div>
     <%# /下部ボタン %>
   <% end %>

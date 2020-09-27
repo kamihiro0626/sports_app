@@ -1,5 +1,5 @@
 .contents_row {
-  background-color: #FFF;
+  background-color: rgba(228, 214, 174, 0.938);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,5 +14,20 @@
 }
 
 .back_page {
+  
+}
 
+.mypage-posts {
+  background-color: lightyellow;
+  font-size: 35px;
+  font-weight: 900;
+  border: 5px solid greenyellow;
+  border-radius: 50px;
+}
+.mypage-favorites {
+  background-color: lightyellow;
+  font-size: 35px;
+  font-weight: 900;
+  border: 5px solid greenyellow;
+  border-radius: 50px;
 }

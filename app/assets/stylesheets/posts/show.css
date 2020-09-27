@@ -10,7 +10,7 @@
 }
 
 .post-box {
-  background-color: #FFF;
+  background-color: #fff;
   width: 70vw;
   min-width: 1200px;
   padding: 10vh 15vw;
@@ -35,12 +35,13 @@
 
 .post-red-btn {
   text-align: center;
-  background-color: #ea352d;
-  font-size: 24px;
+  background-color: lightsalmon;
+  font-size: 12px;
   font-weight: bold;
   color: #FFF;
-  margin: 20px 0px;
+  margin: 10px 0px;
   padding: 2vh 10vw;
+  border-radius: 50px;
 }
 
 .or-text {
@@ -50,10 +51,11 @@
 .post-destroy {
   background-color: lightgray;
   text-align: center;
-  font-size: 24px;
+  font-size: 12px;
   color: black;
-  margin: 20px 0px;
+  margin: 0 0 20px 0;
   padding: 2vh 10vw;
+  border-radius: 50px;
 }
 
 .post-explain-box {
@@ -68,8 +70,8 @@
 
 .detail-post {
   width: 20%;
-  background-color: #eee;
-  border: 1px solid #dedede;
+  background-color: lightsalmon;
+  border: 1px solid lightsalmon;
   font-size: 14px;
   text-align: center;
 }
@@ -77,7 +79,7 @@
 .detail-value {
   width: 80%;
   padding: 20px;
-  border: 1px solid #dedede;
+  border: 1px solid lightsalmon;
   font-size: 14px;
 }
 
@@ -147,7 +149,7 @@
 
 .comment-btn {
   line-height: 48px;
-  background-color: #0bd;
+  background-color: lightsalmon;
   border: 1px solid #3CCACE;
   color: #fff;
   width: 50%;

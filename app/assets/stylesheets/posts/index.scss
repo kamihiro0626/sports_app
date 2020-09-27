@@ -1,10 +1,18 @@
 // 投稿一覧
 
+.index-bag {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+}
+#hom {
+  background-image: image_url("index3.jpeg")
+}
+
+
 .post-contents {
-  background-color: #FFF;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 50px;
   padding: 10vh 0;
 }
 
@@ -44,6 +52,7 @@ main {
 }
 
 .post-img {
+  border: 5px solid lightsalmon;
   width: 33vh;
   height: 33vh;
 }
@@ -77,17 +86,21 @@ main {
   width: 120px;
   background: lightsalmon;
   text-align: center;
-  border-radius: 4%;
+  border-radius: 50%;
   bottom: 32px;
-  right: 32px;
+  right: 65px;
   position: fixed;
   padding: 15px;
+}
+
+.post-btn:hover{
+  background-color: orange;
 }
 
 .post-btn-text {
   color: #fff;
   display: block;
-  font-size: 18px;
+  font-size: 25px;
   text-decoration: none;
   margin-bottom: 5px;
 }

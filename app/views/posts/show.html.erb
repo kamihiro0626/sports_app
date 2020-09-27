@@ -1,56 +1,57 @@
 <%= render "shared/header" %>
 
 <%# 投稿の概要 %>
-<div class="post-show">
-  <div class="post-box">
+  <div id="ho" class="post-show">
+   <div class="post-box">
+    <div class='post-img-content'>
+     <%= video_tag @post.movie, height: "50%", width: "50%", controls: true, autobuffer: true, class:"post-box-img" %>
+    </div>       
     <h2 class="name">
       <%= @post.title %>
     </h2>
-    <div class='post-img-content'>
-     <%= video_tag @post.movie, height: "50%", width: "50%", controls: true, autobuffer: true, class:"post-box-img" %>
-    </div>
-    <div class="post-explain-box">
-      <span><%= @post.content %></span>
-    </div>
-
-    <%# ログインしていて、なおかつ、ログインしているユーザと投稿しているユーザが同一人物でないとき表示しましょう。 %>
-    <% if user_signed_in? && current_user.id == @post.user_id %>
-    <%= link_to '編集', edit_post_path(@post.id), method: :get, class: "post-red-btn" %> 
-    <p class='or-text'>or</p>
-    <%= link_to '削除', post_path(@post.id), method: :delete, class:'post-destroy' %>
-    <% end %>
-    <%# //ログインしていて、なおかつ、ログインしているユーザと投稿しているユーザが同一人物でないとき表示しましょう。 %>
-
     <table class="detail-table">
       <tbody>
         <tr>
-          <th class="detail-post">投稿者</th>
+          <th class="detail-post">POTER</th>
           <td class="detail-value"><%= @post.user.nickname %>
         </tr>
         <tr>
-          <th class="detail-post">カテゴリー</th>
+          <th class="detail-post">CATEGORY</th>
           <td class="detail-value"><%= @post.category.name %>
+        </tr>
+        <tr>
+          <th class="detail-post">CAPTION</th>
+          <td class="detail-value"><%= @post.content %>
         </tr>
       </tbody>
     </table>
+
+    <%# ログインしていて、なおかつ、ログインしているユーザと投稿しているユーザが同一人物でないとき表示しましょう。 %>
+    <% if user_signed_in? && current_user.id == @post.user_id %>
+    <%= link_to 'EDIT', edit_post_path(@post.id), method: :get, class: "post-red-btn" %> 
+    <p class='or-text'>or</p>
+    <%= link_to 'DELETE', post_path(@post.id), method: :delete, class:'post-destroy' %>
+    <% end %>
+    <%# //ログインしていて、なおかつ、ログインしているユーザと投稿しているユーザが同一人物でないとき表示しましょう。 %>
     <div class="option">
       <div class="favorite-btn">
         <%# <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
-        <span>お気に入り 0</span>
+        <span>favorite 0</span>
       </div>
       <div class="report-btn">
         <%# <%= image_tag "flag.png" ,class:"report-flag-icon" ,width:"20",height:"20"%>
-        <span>不適切な投稿の通報</span>
+        <span>Inappropriate Post</span>
       </div>
     </div>
   </div>
-  <%# /投稿の概要 %>
 
- <%# <%コメント機能%> 
-  <div class="comment-box">
- <div class="container">
+    <%# /投稿の概要 %>
+
+   <%# <%コメント機能%> 
+   <div class="comment-box">
+   <div class="container">
     <div class="comments">
-      <h4>＜コメント一覧＞</h4>
+      <h4>＜Commetns＞</h4>
       <% if @comments %>
         <% @comments.each do |comment| %>
           <p>
@@ -58,7 +59,7 @@
             <%= comment.text %>
           </p>
           <p>
-            <%=link_to "削除", post_comment_path(comment.post.id, comment.id), method: :delete %>
+            <%=link_to "delete", post_comments_path(comment.post.id, comment.id), method: :delete %>
           </p>
         <% end %>
       <% end %>
@@ -77,18 +78,29 @@
       <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p>
       </strong>
     <% end %>
-  </div>
-  </div>
-  <%# <コメント機能> %>
+   </div>
+   </div>
+   <%# <コメント機能> %>
+ <%# <% if @post.previous.present? %> 
+   <%# link_to article_path(@article.previous.id), class: 'link' do
+   = @article.previous.title
 
-  <div class="links">
-    <a href="#" class="change-post-btn">
-      ＜ 前の投稿
-    </a>
-    <a href="#" class="change-post-btn">
-      後ろの投稿 ＞
-    </a>
-  </div>
-  <a href="#" class='another-item'><%= "投稿のカテゴリー名" %>をもっと見る</a>
-</div>
+- if @article.next.present?
+  div= link_to article_path(@article.next), class: 'ink' do
+   = @article.next.title %>
+   <div class="links">
+     <a href="#" class="change-post-btn">
+       ＜ back
+     </a>
+     <a href="#" class="change-post-btn">
+      next ＞
+     </a>
+   </div>
+   <div class='post-btn'>
+     <a href="/posts/new">
+      <span class='post-btn-text'>POST</span>
+     </a>
+     <%# <%= image_tag 'camera.png' , size: '185x50' ,class: "purchase-btn-icon" %> 
+   </div>
+ </div>
 <%= render "shared/footer" %>

@@ -13,6 +13,7 @@ aside {
 }
 
 .sub-menu {
+  
   margin-bottom: 60px;
   list-style: none;
 }
@@ -28,5 +29,5 @@ aside {
 }
 
 .sub-menu a:hover {
-  color: #0bd;
+  color: lightsalmon;
 }
