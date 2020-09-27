@@ -1,7 +1,7 @@
 <%=render "shared/header"%>
 
 <div class="contents_row">
-  <p><%= @nickname %>さんの投稿一覧</p>
+  <p class="mypage-posts"><%= @nickname %>さんのPOSTS</p>
       <ul class='post-lists'>
         <% @posts.each do |post| %> 
          <li class='list'>
@@ -22,13 +22,13 @@
          </li>
         <% end %>
       </ul>
-  <p>お気に入り一覧</p>
+  <p class="mypage-favorites">Favorites</p>
   <div class='post-btn'>
-  <span class='post-btn-text'>投稿する</span>
   <a href="/posts/new">
+  <span class='post-btn-text'>POST</span>
     <%# <%= image_tag 'camera.png' , size: '185x50' ,class: "purchase-btn-icon" %> 
   </a>
-</div>
-<%= link_to 'トップページへ戻る', "/posts", class: "back_top" %>
+  </div>
+   <%= link_to 'Back to TOP', "/posts", class: "back_top" %>
 </div>
 <%= render "shared/footer" %>
