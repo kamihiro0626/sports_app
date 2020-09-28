@@ -2,14 +2,14 @@
   box-sizing: border-box;
 }
 
-.samll-bag {
+/* .samll-bag {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center top;
-}
-#head {
+} */
+/* #head {
   background-image: image_url("header2.jpeg")
-}
+} */
 
 .top-page-header {
   max-width: 100vw;
