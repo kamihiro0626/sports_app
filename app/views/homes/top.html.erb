@@ -19,8 +19,9 @@
       自分のスキル上達させませんか？気軽に投稿してスキルを増やそう！
     </p>
     <a class="button" href="/users/sign_in">今すぐ始める</a>
-    <a class="second_button" href="#">かんたんログイン</a>
+    <%= link_to 'かんたんログイン（閲覧用）', users_guest_sign_in_path, method: :post, class:"second_button" %>
     <p class="explain">※かんたんログインは実装を確かめるものです</p>
+    <p class="explain">メールアドレス等を入力せずに閲覧頂けます</p>
   </div>
   <%# //画面の「Improve Your Skills」帯部分  %>
  </div>
