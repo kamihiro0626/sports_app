@@ -11,7 +11,6 @@ class Post < ApplicationRecord
 
   with_options presence: true do
     validates :title
-    validates :content
     validates :category_id
     validates :movie
   end
