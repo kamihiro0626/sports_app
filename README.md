@@ -47,7 +47,7 @@ Things you may want to cover:
 | -------- | ---------- | ------------------------------ |
 | title    | string     | null: false                    |
 | content  | text       | null: false                    |
-| category | integer    | null: false                    |
+| category | references | null: false, foreign_key: true |
 | movie    | string     | null: false                    |
 | user     | references | null: false, foreign_key: true |
 
@@ -58,6 +58,7 @@ Things you may want to cover:
 - has_many :likes
 - has_many :favorites
 - has_many :users, through: :favorites
+- belongs_to :category
 
 ## comments テーブル
 
@@ -95,3 +96,13 @@ Things you may want to cover:
 
 - belongs_to :user
 - belongs_to :post
+
+## Categories テーブル
+
+| Column  | Type       | Options     |
+| ------- | ---------- | ------------|
+| name    | string     | null: false |
+
+### Association
+
+- has_many :posts
