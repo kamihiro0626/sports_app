@@ -6,17 +6,37 @@
         <% @posts.each do |post| %> 
          <li class='list'>
            <%= link_to post_path(post.id) do %>
-           <%# <div class='post-img-content'> %>
-             <%= video_tag post.movie, height: "50%", width: "50%", controls: true, autobuffer: true, loop: true, class: "post-img" %>
-           <%# </div> %>
+             <%= video_tag post.movie, controls: true, autobuffer: true, loop: true, class: "post-img" %>
            <div class='post-info'>
+             <h3 class="post-title">name:
+              <%= post.user.nickname%>
+             </h3>
              <h3 class='post-title'>title:
               <%= post.title %>
              </h3>
-               <div class='star-btn'>
-                 <%# <%= image_tag "star.png", class:"star-icon" %> 
-                 <span class='star-count'>liks: 0</span>
-               </div>
+             <table>
+               <tbody>
+                <tr id="post_<%= post.id %>">
+                 <div class='star-btn'>
+                    <% if current_user.liked_by?(post.id) %>
+                      <td>
+                         <%= link_to destroy_like_path(post), class: "like-link", method: :DELETE, remote: true do %> 
+                          <i class="fa fa-heart unlike-btn"></i>
+                         <%end%>
+                         <%= post.likes.count %> 
+                      </td>
+                    <% else %>
+                      <td>
+                         <%= link_to create_like_path(post), class: "like-link", method: :POST, remote: true do %>
+                          <i class="fa fa-heart like-btn"></i>
+                         <%end%>
+                         <%= post.likes.count %>
+                      </td> 
+                    <% end %>
+                </div>
+                </tr>
+               </tbody>
+             </table>
            </div>
            <% end %>
          </li>
