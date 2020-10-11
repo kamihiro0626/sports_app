@@ -1,0 +1,54 @@
+<h1>
+  検索結果
+</h1>
+<%# 検索結果の個数で条件分岐 %>
+   <ul class='post-lists'>
+    <% if @results.length !=0 %>
+      <% @results.each do |result| %>
+       <td>
+       <br>
+       <li>
+         <%= result.category.name %>
+       </li>
+          <%= link_to post_path(@results.ids) do %> 
+             <%= video_tag result.movie, controls: true, autobuffer: true, loop: true, class: "post-img" %>
+           <div class='post-info'>
+             <h3 class="post-title">name:
+              <%= result.user.nickname%>
+             </h3>
+              <h3 class='post-title'>title:
+              <%= result.title %>
+              </h3>
+              <table>
+                <tbody>
+                 <tr id="post_<%= result.id %>">
+                 <div class='star-btn'>
+                    <% if current_user.liked_by?(result.id) %>
+                      <td>
+                         <%= link_to destroy_like_path(@results.ids), class: "like-link", method: :DELETE, remote: true do %> 
+                          <i class="fa fa-heart unlike-btn"></i>
+                         <%end%>
+                         <%= result.likes.count %> 
+                      </td>
+                    <% else %>
+                      <td>
+                         <%= link_to create_like_path(@results.ids), class: "like-link", method: :POST, remote: true do %>
+                          <i class="fa fa-heart like-btn"></i>
+                         <%end%>
+                         <%= result.likes.count %>
+                      </td> 
+                    <% end %>
+                </div>
+                 </tr>
+                </tbody>
+              </table>
+           </div> 
+            <% end %> 
+         </li>
+       </ul>
+  <% end %>
+<% else %>
+  該当する投稿はありません
+<% end %>
+<br>
+<%= link_to 'トップページへ戻る', posts_path, class: "back-top" %>

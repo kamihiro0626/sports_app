@@ -1,9 +1,20 @@
-<h3 class="sub-title">Category</h3>
-   <ul class='sub-menu'>
-      <li><a href="#">ドリブル</a></li>
-      <li><a href="#">シュート</a></li>
-      <li><a href="#">パス</a></li>
-      <li><a href="#">ディフェンス</a></li>
-      <li><a href="#">その他</a></li>
-    </ul>
-<h3 class="sub-title"><a href="#">About</a></h3>
+<%= search_form_for @p, url: search_path do |f| %>
+  <h3 class="sub-title" >
+    <%= f.label :category_name_eq, 'Category' %>
+  </h3>
+   <ul class="sub-menu">
+     <li><%= f.radio_button :category_name_eq, "ドリブル" %>
+      <%= "ドリブル" %></li>
+     <li><%= f.radio_button :category_name_eq, "シュート" %>
+      <%= "シュート" %></li>
+     <li><%= f.radio_button :category_name_eq, "パス" %>
+      <%= "パス" %></li>
+     <li><%= f.radio_button :category_name_eq, "ディフェンス" %>
+      <%= "ディフェンス" %></li>
+     <li><%= f.radio_button :category_name_eq, "その他" %>
+      <%= "その他" %></li>
+    <br>
+  <%= f.submit 'Search' %>
+   </ul>
+<% end %>
+<h3 class="sub-title"><a href="#">About</a></h3> 

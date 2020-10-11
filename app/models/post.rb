@@ -1,6 +1,4 @@
 class Post < ApplicationRecord
-  extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to_active_hash :category
   mount_uploader :movie, MovieUploader
 
   belongs_to :user
@@ -8,6 +6,7 @@ class Post < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :users, through: :favorites
+  belongs_to :category
 
   with_options presence: true do
     validates :title

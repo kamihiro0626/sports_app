@@ -1,9 +1,10 @@
 class PostsController < ApplicationController
     before_action :set_post, only: [:show, :edit, :update, :destroy]
-
+    before_action :search_post, only: [:index, :search]
 
   def index
-    @posts = Post.all.includes(:user).order("created_at DESC")
+    @posts = Post.all.includes(:user).order("created_at DESC") 
+    set_category_column
   end
 
   def new
@@ -47,7 +48,14 @@ class PostsController < ApplicationController
  def favorites
     @posts = current_user.favorites_posts.includes(:user).recent
  end
- 
+
+ def search
+  @results = @p.result.includes(:category)  # 検索条件にマッチした投稿の情報を取得
+ end
+
+ def set_category_column
+  @category_name = Category.select("name").distinct
+ end
 #  def previous
 #   Post.where("id < ?",id).order("id DESC").publish.first
 # end
@@ -69,5 +77,9 @@ class PostsController < ApplicationController
 
   def set_post
     @post = Post.find(params[:id])
+  end
+
+  def search_post
+    @p = Post.ransack(params[:q])  # 検索オブジェクトを生成
   end
 end
