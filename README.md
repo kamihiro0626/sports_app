@@ -1,27 +1,38 @@
 # README
+![original](https://user-images.githubusercontent.com/69024430/95948327-51947b00-0e2b-11eb-9723-239f7def4aaa.jpg)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<h2 align="center">Skill Movie</h2>
 
-Things you may want to cover:
+# アプリ名
+- Skill Movie
 
-* Ruby version
+# 概要
+ 「バスケスキルを上達させる、増やす！」
+ バスケが上手くなりたい、ライバルに差をつけたいと常日頃から思っている方に向けた、動画専用投稿アプリです。
+- 自分の得意技を自慢できる！
+- 人の投稿を見て、スキルを盗める！
+- 出来なかったスキルができるようになる喜びが味わえる！
 
-* System dependencies
+# URL
+ https://sports-app-28797.herokuapp.com/
+【かんたんログイン】ボタンからテストユーザーとしてログインできます。
 
-* Configuration
+# 制作の背景
+ 私はバスケットボールを13年間続けてきました。
 
-* Database creation
+ 小さい頃からプロ選手の真似をよくしていましたが、毎回ビデオを再生することに面倒臭さを感じていました。また、上手い選手のスキルを真似したくても、教えて貰える機会はありませんでした。
 
-* Database initialization
+ そこで、世界中のバスケットマンが自分のスキルを披露できる場を設ければ、多くの人が手軽にスキルを学べる機会を作り出すことができるのではないかと思いこのサービスを制作しました。同時に、このアプリケーションを通して日本のバスケットボールを盛り上げていきたいと思っています。
 
-* How to run the test suite
+# 機能一覧
+- 動画投稿機能
+- コメント機能
+- いいね機能
+- カテゴリー検索機能
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+# 環境・使用技術
 
-* ...
 
 # テーブル設計
 
