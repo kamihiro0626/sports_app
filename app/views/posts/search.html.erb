@@ -2,27 +2,28 @@
   検索結果
 </h1>
 <%# 検索結果の個数で条件分岐 %>
+<div class= "post-contents">
+ <main>
    <ul class='post-lists'>
     <% if @results.length !=0 %>
       <% @results.each do |result| %>
-       <td>
-       <br>
-       <li>
+       <%# <br> %>
+      <li class='list'>
          <%= result.category.name %>
-       </li>
           <%= link_to post_path(@results.ids) do %> 
              <%= video_tag result.movie, controls: true, autobuffer: true, loop: true, class: "post-img" %>
-           <div class='post-info'>
+            <div class='post-info'>
              <h3 class="post-title">name:
               <%= result.user.nickname%>
              </h3>
               <h3 class='post-title'>title:
               <%= result.title %>
               </h3>
+             <%# いいね機能の実装 %>
               <table>
                 <tbody>
                  <tr id="post_<%= result.id %>">
-                 <div class='star-btn'>
+                  <div class='star-btn'>
                     <% if current_user.liked_by?(result.id) %>
                       <td>
                          <%= link_to destroy_like_path(@results.ids), class: "like-link", method: :DELETE, remote: true do %> 
@@ -38,17 +39,24 @@
                          <%= result.likes.count %>
                       </td> 
                     <% end %>
-                </div>
+                  </div>
                  </tr>
                 </tbody>
               </table>
-           </div> 
+             <%# いいね機能の実装 %>
+            </div> 
             <% end %> 
-         </li>
-       </ul>
-  <% end %>
-<% else %>
-  該当する投稿はありません
-<% end %>
+        </li>
+     <% end %>
+    <% else %>
+       該当する投稿はありません
+    <% end %>
+   </ul>
+ </main>
+ <aside>
+    <%= render "shared/side-bar" %>
+ </aside>
 <br>
-<%= link_to 'トップページへ戻る', posts_path, class: "back-top" %>
+</div>
+<%= link_to 'Back to TOP', posts_path, class: "back_top" %>
+<%= render "shared/footer" %>
