@@ -99,3 +99,17 @@
 .login {
   font-size: 18px;
 }
+
+.facebook {
+  background-color: rgb(83, 83, 236);
+  border: solid 1x black;
+  border-radius: 5px;
+  color: #fff;
+}
+
+.google {
+  background-color: white;
+  border: solid 1px black;
+  border-radius: 5px;
+  color: red;
+}
