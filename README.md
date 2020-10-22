@@ -54,6 +54,7 @@
 
 ### その他使用技術
 * 非同期通信 (いいね機能)
+* 外部API(facebook,googoleのログイン機能)
 * devise (ログイン・ログアウト機能)
 * carrierwave (動画投稿機能)
 * Rubocop-airbnb
