@@ -77,6 +77,7 @@
 - has_many :likes
 - has_many :favorites
 - has_many :fav_posts, through: :favorites, source: :post
+- has_many :sns_credentials
 
 ## posts テーブル
 
@@ -143,3 +144,15 @@
 ### Association
 
 - has_many :posts
+
+## sns_credentials
+
+| Column   | Type       | Options                        |
+| -------- | ---------- | ------------------------------ |
+| provider | string     | null: false                    |
+| uid      | string     | null: false                    |
+| user     | reference  | null: false, foreign_key: true |
+
+## Association
+
+- belongs_to :user
